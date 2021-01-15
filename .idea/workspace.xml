@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8479b385-8bd6-4ef7-a144-0db1bc3ec4d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="8479b385-8bd6-4ef7-a144-0db1bc3ec4d4" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610635030784</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixing bugs port address and create dockerfile">
+      <created>1610702469941</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610702469941</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +101,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create Project Frame" />
     <MESSAGE value="Create API Register User" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create API Register User" />
+    <MESSAGE value="Fixing bugs port address and create dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing bugs port address and create dockerfile" />
   </component>
 </project>
