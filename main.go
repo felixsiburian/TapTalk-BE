@@ -3,14 +3,15 @@ package main
 import (
 	"TapTalk-BE/router"
 	"fmt"
-	"log"
+	"os"
 )
 
 func main() {
 	fmt.Println("Welcome ...")
 	e := router.New()
-	err := e.Start("8000")
+	err := e.Start(":8080")
 	if err != nil {
-		log.Fatal("Error start : ", err.Error())
+		fmt.Println("Error : ", err.Error())
+		os.Exit(1)
 	}
 }
