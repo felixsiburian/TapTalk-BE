@@ -14,7 +14,6 @@ import (
 )
 
 var emailRegex = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
-var formatDate = "yyyy-MM-DD"
 
 func isEmailValid(e string) bool {
 	if len(e) < 3 && len(e) > 254 {
@@ -57,11 +56,30 @@ func isPasswordValid(s string) bool {
 	return isMinLen && isUpper && isLower && isNumber && isSymbol
 }
 
+func CheckCredentialExist(email, username string) bool {
+	db := database.ConnDb()
+	user := User.User{}
+	emails := db.Debug().Model(&User.User{}).Where("email = ?", email).Take(&user).RowsAffected
+	if emails > 0 {
+		return true
+	}
+	usernames := db.Debug().Model(&User.User{}).Where("username = ?", username).Take(&user).RowsAffected
+	if usernames > 0 {
+		return true
+	}
+	return false
+}
+
 func Register(c echo.Context) error {
 	db := database.ConnDb()
 	user := new(User.User)
 
 	err := json.NewDecoder(c.Request().Body).Decode(&user)
+	checkCredential := CheckCredentialExist(user.Email, user.Username)
+	if checkCredential == true {
+		return c.String(http.StatusForbidden, "Email or Username already Exist")
+	}
+
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
 	}
@@ -92,8 +110,10 @@ func Register(c echo.Context) error {
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
 	}
+
 	user.Password = string(hashedPaswword)
-	user.CreatedDate = time.Now()
+	currentTime := time.Now()
+	user.CreatedDate = currentTime.Format(formatDate)
 	err = db.Debug().Create(&user).Error
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())

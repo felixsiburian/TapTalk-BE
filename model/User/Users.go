@@ -12,7 +12,7 @@ type User struct {
 	Email       string    `json:"email"`
 	Username    string    `json:"username"`
 	Password    string    `json:"password"`
-	CreatedDate time.Time `json:"created_date"`
+	CreatedDate string    `json:"created_date"`
 }
 
 func HashPassword(password string) ([]byte, error) {
