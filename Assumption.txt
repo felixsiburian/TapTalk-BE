@@ -1,0 +1,5 @@
+Assumption : 
+
+1. Pada soal terdapat 'daily entries'. Asumsi saya, daily entries adalah absensi.
+2. Database telah tersedia dengan nama database.pgsql(postgre)
+3. Database diagram telah tersedia dengan nama DbDiagram
