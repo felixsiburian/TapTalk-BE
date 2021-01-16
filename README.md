@@ -1,5 +1,5 @@
 # TapTalk-BE
-
+## Read the assumption.txt first
 ## You can Find The API Documentation Here : https://documenter.getpostman.com/view/4760244/TVzVhFor
 
 ### How to Deploy this Backend
